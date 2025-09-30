@@ -1,0 +1,41 @@
+{
+  "name": "@alchemy/eslint-config",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ESLint configuration for Alchemy projects",
+  "author": "Andy Zheng <END-OFD@pm.me>",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    }
+  },
+  "types": "./index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore"
+  },
+  "prettier": "@alchemy/prettier-config",
+  "dependencies": {
+    "@eslint/js": "^9.27.0",
+    "@next/eslint-plugin-next": "^15.3.1",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-only-warn": "^1.1.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-turbo": "^2.5.3",
+    "typescript-eslint": "^8.32.0"
+  },
+  "devDependencies": {
+    "@alchemy/prettier-config": "workspace:*",
+    "@alchemy/tsconfig": "workspace:*",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:"
+  }
+}

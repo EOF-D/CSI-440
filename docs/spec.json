@@ -1,0 +1,159 @@
+{
+  "courseData": {
+    "metadata": {
+      "version": "0.1.0",
+      "createdDate": "...",
+      "lastModified": "...",
+      "status": "DRAFT",
+      "reviewStatus": "PENDING",
+      "createdBy": "faculty@champlain.edu",
+      "proposalId": "..."
+    },
+    "courseIdentity": {
+      "prefix": "CCT",
+      "number": 120,
+      "title": "Community Quest",
+      "transcriptTitle": "Community Quest",
+      "credits": 3,
+      "facultyLoad": 3,
+      "effectiveSemester": {
+        "term": "FALL",
+        "year": 2025
+      },
+      "courseType": [
+        {
+          "category": "GenEd",
+          "subcategory": "Community Connections Toolkit"
+        }
+      ],
+      "catalogDescription": "...",
+      "prerequisites": [
+        {
+          "coursePrefix": "XXX",
+          "courseNumber": "###",
+          "courseName": "Inquiry for a World In-Flux"
+        }
+      ],
+      "instructionalMethod": "STANDARD",
+      "semesterOffered": "BOTH",
+      "capacity": 20
+    },
+    "learningOutcomes": {
+      "courseLearningOutcomes": [
+        {
+          "id": "...",
+          "description": "Community Dynamics: Evaluate through case studies and theoretical frameworks how communities form, sustain, transform, and dissolve while creating both belonging and exclusion",
+          "linkedPLOs": [
+            "PLO1",
+            "PLO2"
+          ]
+        },
+        {
+          "id": "...",
+          "description": "Community Engaged Scholarship Frameworks: Understand and critique participatory research methods, examining how different approaches position community members as subjects versus co-investigators",
+          "linkedPLOs": [
+            "PLO2"
+          ]
+        },
+        {
+          "id": "...",
+          "description": "Asset and Deficit Approaches: Analyze how different frameworks identify community strengths versus problems, understanding the implications of each approach",
+          "linkedPLOs": [
+            "PLO3"
+          ]
+        },
+        {
+          "id": "...",
+          "description": "Power and Positionality: Critically analyze power dynamics, contested boundaries, and issues of social positioning within community contexts through case studies",
+          "linkedPLOs": [
+            "PLO3"
+          ]
+        },
+        {
+          "id": "...",
+          "description": "Community Knowledge Systems: Evaluate different epistemologies and forms of knowledge production within and about communities",
+          "linkedPLOs": [
+            "PLO2"
+          ]
+        },
+        {
+          "id": "...",
+          "description": "Community Theories: Apply multiple theoretical lenses to understand communities across scales and contexts",
+          "linkedPLOs": [
+            "PLO1"
+          ]
+        }
+      ],
+      "programLearningOutcomes": [
+        {
+          "id": "...",
+          "description": "Community-Engaged Learning and Social Responsibility - Students will acquire the skills and experience to effectively analyze and contribute to community-based endeavors through holistic, socially responsible actions and interpretations",
+          "competencies": [
+            "GCU",
+            "INQ"
+          ]
+        },
+        {
+          "id": "...",
+          "description": "Applied Interdisciplinary Skills in the Liberal Arts - Students will integrate interdisciplinary knowledge and methods from the liberal arts to engage with complex, community challenges in multiple contexts and scales",
+          "competencies": [
+            "SL",
+            "TL",
+            "QL"
+          ]
+        },
+        {
+          "id": "...",
+          "description": "Ethical Decision-Making and Critical Reflection - Students will apply ethical decision-making frameworks to analyze and navigate power dynamics within communities, fostering equitable and just outcomes",
+          "competencies": [
+            "GCU",
+            "INQ"
+          ]
+        }
+      ],
+      "competencyMapping": {
+        "Inquiry": 3,
+        "Integration": 2,
+        "GlobalCulturalAwareness": 3,
+        "Analysis": 2,
+        "DiversityEquityInclusion": 2
+      }
+    },
+    "topicalOutline": {
+      "body": "..."
+    },
+    "assessmentDesign": {
+      "majorAssessments": [
+        {
+          "name": "Community Quest - Comparative Community Analysis Paper",
+          "description": "...",
+          "llinkedCLOs": [
+            "...",
+            "...",
+            "..."
+          ]
+        }
+      ]
+    },
+    "resourcesPlanning": {
+      "facilities": {
+        "classroomType": "Lab classroom",
+        "body": "..."
+      },
+      "technology": {
+        "body": "Standard classroom A/V for presentations"
+      },
+      "libraryResources": [
+        {
+          "...": 1
+        },
+        {
+          "...": 2
+        }
+      ],
+      "otherResources": {
+        "body": "..."
+      }
+    }
+  }
+}
