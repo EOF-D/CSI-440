@@ -1,8 +1,8 @@
 {
-  "name": "@alchemy/eslint-config",
+  "name": "@champlain/eslint-config",
   "version": "0.1.0",
   "private": true,
-  "description": "ESLint configuration for Alchemy projects",
+  "description": "ESLint configuration for champlain projects",
   "author": "Andy Zheng <END-OFD@pm.me>",
   "type": "module",
   "exports": {
@@ -20,7 +20,7 @@
     "clean": "git clean -xdf .cache .turbo node_modules",
     "format": "prettier --check . --ignore-path ../../.gitignore"
   },
-  "prettier": "@alchemy/prettier-config",
+  "prettier": "@champlain/prettier-config",
   "dependencies": {
     "@eslint/js": "^9.27.0",
     "@next/eslint-plugin-next": "^15.3.1",
@@ -32,8 +32,8 @@
     "typescript-eslint": "^8.32.0"
   },
   "devDependencies": {
-    "@alchemy/prettier-config": "workspace:*",
-    "@alchemy/tsconfig": "workspace:*",
+    "@champlain/prettier-config": "workspace:*",
+    "@champlain/tsconfig": "workspace:*",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"

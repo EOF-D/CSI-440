@@ -3,13 +3,13 @@
  *
  * @file tools/eslint/index.d.ts
  * @author Andy Zheng
- * @since 06.25.2025
+ * @since 09.30.2025
  */
 
 import type { Linter } from "eslint";
 
 /**
- * Base ESLint configuration for Alchemy projects.
+ * Base ESLint configuration for champlain projects.
  */
 export declare const baseConfig: Linter.FlatConfig[];
 

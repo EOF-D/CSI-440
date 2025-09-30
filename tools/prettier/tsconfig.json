@@ -1,5 +1,5 @@
 {
-  "extends": "@alchemy/tsconfig/base.json",
+  "extends": "@champlain/tsconfig/base.json",
   "include": ["."],
   "exclude": ["node_modules"]
 }

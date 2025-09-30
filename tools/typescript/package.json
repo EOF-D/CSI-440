@@ -1,8 +1,8 @@
 {
-  "name": "@alchemy/tsconfig",
+  "name": "@champlain/tsconfig",
   "version": "0.1.0",
   "private": true,
-  "description": "Shared TypeScript configuration for Alchemy projects.",
+  "description": "Shared TypeScript configuration for champlain projects.",
   "author": "Andy Zheng <END-OFD@pm.me>",
   "files": [
     "*.json"
