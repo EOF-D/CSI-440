@@ -1,0 +1,180 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?
+  role          UserRole  @default(USER)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  lastSignIn    DateTime?
+  accounts      Account[]
+  courses       Course[]
+  sessions      Session[]
+
+  @@map("users")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verificationtokens")
+}
+
+model Course {
+  id                 String                  @id @default(cuid())
+  proposalId         String                  @unique
+  coursePrefix       String
+  courseNumber       Int
+  title              String
+  credits            Int
+  catalogDescription String
+  status             CourseStatus            @default(DRAFT)
+  currentModule      String?
+  completedModules   String[]
+  createdAt          DateTime                @default(now())
+  updatedAt          DateTime                @updatedAt
+  authorId           String
+  assessments        Assessment[]
+  contentUnits       ContentUnit[]
+  learningOutcomes   CourseLearningOutcome[]
+  author             User                    @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  resources          ResourcePlanning?
+
+  @@unique([coursePrefix, courseNumber])
+  @@index([authorId])
+  @@index([status])
+  @@map("courses")
+}
+
+model CourseLearningOutcome {
+  id           String          @id @default(cuid())
+  courseId     String
+  cloCode      String
+  description  String
+  competencies Json?
+  linkedPLOs   String[]
+  createdAt    DateTime        @default(now())
+  assessments  AssessmentCLO[]
+  course       Course          @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([courseId, cloCode])
+  @@index([courseId])
+  @@map("course_learning_outcomes")
+}
+
+model Assessment {
+  id               String          @id @default(cuid())
+  courseId         String
+  assessmentCode   String
+  name             String
+  assessmentType   String
+  description      String
+  weightPercentage Int?
+  createdAt        DateTime        @default(now())
+  linkedCLOs       AssessmentCLO[]
+  course           Course          @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([courseId, assessmentCode])
+  @@index([courseId])
+  @@map("assessments")
+}
+
+model AssessmentCLO {
+  id           String                @id @default(cuid())
+  assessmentId String
+  cloId        String
+  assessment   Assessment            @relation(fields: [assessmentId], references: [id], onDelete: Cascade)
+  clo          CourseLearningOutcome @relation(fields: [cloId], references: [id], onDelete: Cascade)
+
+  @@unique([assessmentId, cloId])
+  @@map("assessment_clos")
+}
+
+model ContentUnit {
+  id        String   @id @default(cuid())
+  courseId  String
+  title     String
+  order     Int
+  themes    Json?
+  createdAt DateTime @default(now())
+  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([courseId, order])
+  @@index([courseId])
+  @@map("content_units")
+}
+
+model ResourcePlanning {
+  id              String   @id @default(cuid())
+  courseId        String   @unique
+  classroomType   String?
+  capacity        Int?
+  technologyLevel String?
+  technologyNeeds String?
+  libraryStatus   String?
+  libraryNotes    String?
+  estimatedCost   Decimal? @db.Decimal(10, 2)
+  additionalNotes String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  course          Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@map("resource_planning")
+}
+
+enum UserRole {
+  ADMIN
+  USER
+  VIEWER
+  FACULTY
+}
+
+enum CourseStatus {
+  DRAFT
+  IN_REVIEW
+  APPROVED
+  REJECTED
+}

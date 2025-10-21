@@ -1,0 +1,57 @@
+{
+  "name": "@champlain/db",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Database schema and Prisma client for Champlain Academic Affairs",
+  "author": "Andy Zheng <END-OFD@pm.me>",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "db:debug": "prisma debug",
+    "db:down": "docker-compose down",
+    "db:format": "prisma format",
+    "db:generate": "pnpm with-env prisma generate",
+    "db:logs": "docker-compose logs postgres",
+    "db:migrate": "pnpm with-env prisma migrate dev",
+    "db:migrate:deploy": "pnpm with-env prisma migrate deploy",
+    "db:migrate:reset": "pnpm with-env prisma migrate reset",
+    "db:pull": "pnpm with-env prisma db pull",
+    "db:push": "pnpm with-env prisma db push",
+    "db:seed": "pnpm with-env prisma db seed",
+    "db:studio": "pnpm with-env prisma studio",
+    "db:up": "docker-compose up -d",
+    "db:validate": "prisma validate",
+    "dev": "tsc --watch",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "with-env": "dotenv -e ../../.env --"
+  },
+  "prettier": "@champlain/prettier-config",
+  "dependencies": {
+    "@prisma/client": "catalog:backend",
+    "bcryptjs": "catalog:backend"
+  },
+  "devDependencies": {
+    "@champlain/eslint-config": "workspace:*",
+    "@champlain/prettier-config": "workspace:*",
+    "@champlain/tsconfig": "workspace:*",
+    "@types/bcryptjs": "catalog:backend",
+    "dotenv-cli": "^8.0.0",
+    "eslint": "catalog:",
+    "prisma": "catalog:backend",
+    "tsx": "catalog:",
+    "typescript": "catalog:"
+  },
+  "prisma": {
+    "seed": "pnpm with-env tsx ./src/seed.ts"
+  }
+}
